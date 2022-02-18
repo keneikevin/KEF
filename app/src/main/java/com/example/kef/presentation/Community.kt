@@ -130,8 +130,8 @@ fun Community() {
                 )
             }
             Spacer(modifier = Modifier.height(32.dp))
-            Text(text = "Today's Planning", fontWeight = FontWeight.SemiBold, fontSize = 24.sp, color = Color.White)
-            Text(text = "You have 3 actions to do", fontWeight = FontWeight.SemiBold, fontSize = 16.sp, color = Color.White)
+            Text(text = "What we do", fontWeight = FontWeight.SemiBold, fontSize = 24.sp, color = Color.White)
+            Text(text = "Video,press,awards", fontWeight = FontWeight.SemiBold, fontSize = 16.sp, color = Color.White)
             Spacer(modifier = Modifier.height(16.dp))
             Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 TaskItem(
