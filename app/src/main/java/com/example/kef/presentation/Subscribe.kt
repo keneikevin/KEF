@@ -62,6 +62,13 @@ fun Subscribe() {
     }
     Column(
         modifier = Modifier
+            .background(
+                Brush.verticalGradient(
+                    listOf(
+                        Color.Black, Color.DarkGray
+                    )
+                )
+            )
             .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -99,7 +106,7 @@ fun Subscribe() {
         Spacer(modifier = Modifier.height(20.dp))
                     Text(
                         text = natural.title,
-                        color =  Color(0xFF4CAF50),
+                        color =  Color.White,
                         fontSize = 40.sp,
                         fontWeight = FontWeight.Bold,
 
@@ -121,22 +128,21 @@ fun Subscribe() {
         PagerIndicator(onBoardItem.size, pagerState.currentPage)
         Card(
             elevation = 25.dp,
-            shape = RoundedCornerShape(6.dp) ,
+            shape = RoundedCornerShape(26.dp) ,
             modifier = Modifier
-            .padding(5.dp)
+            .padding(15.dp)
                 .height(50.dp)
             .fillMaxWidth(),) {
             OutlinedButton(
 
                 onClick = {},
                 colors = ButtonDefaults.outlinedButtonColors(
-                    backgroundColor = Color(0xFF4CAF50)
+                    backgroundColor = Color.White
                 )
             ) {
-
                 Text(
                     text = "Give Monthly",
-                    color = Color.White,
+                    color = Color.DarkGray,
                     fontWeight = FontWeight.Bold,
                     style = TextStyle(
                         fontFamily = FontFamily.SansSerif,
@@ -189,7 +195,7 @@ fun IndicateIcon(isSelected: Boolean) {
             .clip(CircleShape)
             .background(
                 if (isSelected) {
-                    Color(0xFFCDDC39)
+                    Color.LightGray
                 } else {
                     Color.Gray.copy(alpha = 0.5f)
                 }

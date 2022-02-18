@@ -50,99 +50,109 @@ fun Community() {
     val horizontalPadding = 16.dp
 
     Scaffold(
-   ) {
-       Column(
-           Modifier
-               .fillMaxWidth()
-               .verticalScroll(rememberScrollState())
-               .padding(horizontal = horizontalPadding)
-       ) {
-           Spacer(modifier = Modifier.height(24.dp))
-           Text(text = "KEF Alumni", fontWeight = FontWeight.Bold, fontSize = 24.sp)
-           Text(text = "Ambitious person aren't you?", fontWeight = FontWeight.SemiBold, fontSize = 16.sp, color = Color.Gray)
-           Spacer(modifier = Modifier.height(24.dp))
+    ) {
+        Column(
+            Modifier
+                .fillMaxWidth()
+
+                .verticalScroll(rememberScrollState())
+                .background(
+                    Brush.horizontalGradient(
+                        listOf(
+                            Color.DarkGray, Color.Black
+                        )
+                    )
+                )
+                .padding(horizontal = horizontalPadding)
+        ) {
+            Spacer(modifier = Modifier.height(24.dp))
+            Text(text = "KEF Alumni", fontWeight = FontWeight.Bold, fontSize = 24.sp,color = Color.White)
+            Text(text = "Ambitious person aren't you?", fontWeight = FontWeight.SemiBold, fontSize = 16.sp, color = Color.White)
+            Spacer(modifier = Modifier.height(24.dp))
 
 
-           Card(modifier=Modifier, backgroundColor = White, elevation = 4.dp, contentColor = Color.Black) {
+            Card(modifier=Modifier, backgroundColor = Color.Gray, elevation = 4.dp, contentColor = Color.Black) {
 
-               Row(
-                   Modifier
-                       .padding(16.dp)
-                       .fillMaxWidth()
-                       .background(LightGray),
-                   verticalAlignment = Alignment.CenterVertically
-               ) {
-                   Image(
-                       painter = painterResource(id = R.drawable.alumni_logo),
-                       contentDescription = "background",
-                       modifier = Modifier
-                           .size(150.dp),
-                       contentScale = ContentScale.Crop
-                   )
-                   Column(
-                       Modifier
-                           .padding(horizontal = 4.dp)
-                           .weight(1f)
-                   ) {
-                       Text(text = "KEF Alumni")
-                       Text(text = "subtitle", fontSize = 12.sp, color = Color.Gray)
-                   }
-                   IconButton(onClick = {}, modifier = Modifier.align(Alignment.Top)) {
-                       Icon(imageVector = Icons.Default.MoreVert, contentDescription = "More")
-                   }
-               }
-           }
-           Spacer(modifier = Modifier.height(24.dp))
-           Text(text = "Events near you!", fontWeight = FontWeight.SemiBold, fontSize = 16.sp, color = Color.Gray)
-           Spacer(modifier = Modifier.height(24.dp))
-           Row(Modifier.fillMaxWidth()) {
-               BigButton(
-                   icon = Icons.Default.Home,
-                   iconTint = Color.White,
-                   title = "Open Day",
-                   subtitle = "Give back to the community   ",
-                   reminder = "Every Day",
-                   modifier = Modifier
-                       .weight(1f)
-                       .clickable { }
-               )
-               Spacer(modifier = Modifier.width(8.dp))
-               BigButton(
-                   icon = Icons.Default.Favorite,
-                   iconTint = Color.White,
-                   title = "Rotarant Voices",
-                   subtitle = "Because your are greatfull",
-                   reminder = "Every Day",
-                   modifier = Modifier
-                       .weight(1f)
-                       .clickable { }
-                       .background(White)
-               )
-           }
-           Spacer(modifier = Modifier.height(32.dp))
-           Text(text = "Today's Planning", fontWeight = FontWeight.SemiBold, fontSize = 24.sp)
-           Text(text = "You have 3 actions to do", fontWeight = FontWeight.SemiBold, fontSize = 16.sp, color = Color.Gray)
-           Spacer(modifier = Modifier.height(16.dp))
-           Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-               TaskItem(
-                   icon = Icons.Outlined.AccountBox,
-                   title = "KEF Blog",
-                   subtitle = "Complete programming course",
-                   modifier = Modifier.clickable { })
-               TaskItem(
-                   icon = Icons.Outlined.PlayArrow,
-                   title = "Media and press",
-                   subtitle = "Create new YouTube tutorial",
-                   modifier = Modifier.clickable { })
-               TaskItem(
-                   icon = Icons.Outlined.DateRange,
-                   title = "Our Process",
-                   subtitle = "Watch CodingArk new videos",
-                   modifier = Modifier.clickable { })
-           }
-           Spacer(modifier = Modifier.height(16.dp))
-       }
-   }
+                Row(
+                    Modifier
+                        .padding(16.dp)
+                        .fillMaxWidth()
+                     //   .background(Color(0xFF52340D))
+                    ,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.alumni_logo),
+                        contentDescription = "background",
+                        modifier = Modifier
+                            .background(Color(0xFF52340D))
+                            .size(150.dp),
+                        contentScale = ContentScale.Crop
+                    )
+                    Column(
+                        Modifier
+                            .padding(horizontal = 4.dp)
+                            .weight(1f)
+                    ) {
+                        Text(text = "KEF Alumni", color = Color.White)
+                        Text(text = "subtitle", fontSize = 12.sp, color = Color.White)
+                    }
+                    IconButton(onClick = {}, modifier = Modifier.align(Alignment.Top)) {
+                        Icon(imageVector = Icons.Default.MoreVert, contentDescription = "More")
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(24.dp))
+            Text(text = "Events near you!", fontWeight = FontWeight.SemiBold, fontSize = 16.sp, color = Color.White)
+            Spacer(modifier = Modifier.height(24.dp))
+            Row(Modifier.fillMaxWidth()) {
+                BigButton(
+                    icon = Icons.Default.Home,
+                    iconTint = Color.LightGray,
+                    title = "Open Day",
+                    subtitle = "Give back to the community   ",
+                    reminder = "Every Day",
+                    modifier = Modifier
+                        .weight(1f)
+                        .clickable { }
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                BigButton(
+                    icon = Icons.Default.Favorite,
+                    iconTint =  Color.LightGray,
+                    title = "Rotarant Voices",
+                    subtitle = "Because your are greatfull",
+                    reminder = "Every Day",
+                    modifier = Modifier
+                        .weight(1f)
+                        .clickable { }
+                        .background(Color(0xFF52340D))
+                )
+            }
+            Spacer(modifier = Modifier.height(32.dp))
+            Text(text = "Today's Planning", fontWeight = FontWeight.SemiBold, fontSize = 24.sp, color = Color.White)
+            Text(text = "You have 3 actions to do", fontWeight = FontWeight.SemiBold, fontSize = 16.sp, color = Color.White)
+            Spacer(modifier = Modifier.height(16.dp))
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                TaskItem(
+                    icon = Icons.Outlined.AccountBox,
+                    title = "KEF Blog",
+                    subtitle = "Complete programming course",
+                    modifier = Modifier.clickable { })
+                TaskItem(
+                    icon = Icons.Outlined.PlayArrow,
+                    title = "Media and press",
+                    subtitle = "Create new YouTube tutorial",
+                    modifier = Modifier.clickable { })
+                TaskItem(
+                    icon = Icons.Outlined.DateRange,
+                    title = "Our Process",
+                    subtitle = "Watch CodingArk new videos",
+                    modifier = Modifier.clickable { })
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+        }
+    }
 }
 
 
@@ -153,14 +163,9 @@ fun BigButton(
     title: String,
     subtitle: String,
     reminder: String,
-    modifier: Modifier = Modifier.background(
-        Brush.horizontalGradient(
-            listOf(
-                Blue1, Blue2
-            )
-        ))
+    modifier: Modifier = Modifier
 ) {
-    Card(backgroundColor = Cyan, elevation = 0.dp, modifier = modifier, contentColor = Color.Black) {
+    Card(backgroundColor =  Color.Gray, elevation = 0.dp, modifier = modifier, contentColor = Color.White) {
         Column(Modifier.padding(16.dp)) {
             Icon(imageVector = icon, contentDescription = "Icon", tint = iconTint, modifier = Modifier.size(52.dp))
             Text(text = title, fontWeight = FontWeight.SemiBold, fontSize = 18.sp)
@@ -179,7 +184,7 @@ fun TaskItem(
     subtitle: String,
     modifier: Modifier = Modifier
 ) {
-    Card(modifier, backgroundColor = White, elevation = 4.dp, contentColor = Color.Black) {
+    Card(modifier, backgroundColor = Color.Gray, elevation = 4.dp, contentColor = Color.Black) {
         Row(
             Modifier
                 .padding(16.dp)
@@ -190,20 +195,22 @@ fun TaskItem(
             Icon(
                 imageVector = icon,
                 contentDescription = "Icon",
-                tint = Green,
+                tint = White,
                 modifier = Modifier
                     .fillMaxHeight()
                     .aspectRatio(1f)
-                    .background(Color.White, RoundedCornerShape(8.dp))
+                    .background(Color.Gray
+                        , RoundedCornerShape(8.dp))
                     .padding(8.dp)
             )
             Column(
                 Modifier
                     .padding(horizontal = 4.dp)
+                    .background(Color.Gray)
                     .weight(1f)
             ) {
-                Text(text = title)
-                Text(text = subtitle, fontSize = 12.sp, color = Color.Gray)
+                Text(text = title, color = White)
+                Text(text = subtitle, fontSize = 12.sp, color = Color.White)
             }
             IconButton(onClick = {}, modifier = Modifier.align(Alignment.Top)) {
                 Icon(imageVector = Icons.Default.MoreVert, contentDescription = "More")
@@ -218,6 +225,10 @@ fun TaskItem(
 fun DefaultPreview(){
     Community()
 }
+
+
+
+
 
 
 

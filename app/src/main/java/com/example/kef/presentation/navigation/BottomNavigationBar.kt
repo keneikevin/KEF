@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -22,24 +23,28 @@ import com.example.kef.other.Three
 fun BottomNavigationBar(
     items: List<BottomNavItem>,
     navController: NavController,
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier .background(
+        Brush.verticalGradient(
+            listOf(
+                Color.Transparent, Color.Black
+            )
+        )
+    ),
     onItemClick: (BottomNavItem) -> Unit
 ) {
     val backStackEntry = navController.currentBackStackEntryAsState()
-    Card(
-       elevation = 20.dp
-    ) {
+
     BottomNavigation(
         modifier = modifier,
-        backgroundColor = Color.White,
-        elevation = 5.dp
+        backgroundColor = Color.Transparent,
+        elevation = 20.dp
     ) {
         items.forEach { item ->
             val selected = item.route == backStackEntry.value?.destination?.route
             BottomNavigationItem(
                 selected = selected,
                 onClick = { onItemClick(item) },
-                selectedContentColor = Color(0xFF4CAF50),
+                selectedContentColor = Color(0xFFFAFAFA),
                 unselectedContentColor = Color.Gray,
                 icon = {
                     Column(horizontalAlignment = CenterHorizontally) {
@@ -71,7 +76,7 @@ fun BottomNavigationBar(
                 }
             )
         }
-    }}
+    }
 }
 
 

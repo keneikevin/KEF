@@ -1,9 +1,12 @@
 package com.example.kef.presentation
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
@@ -13,6 +16,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.Black
+import androidx.compose.ui.graphics.Color.Companion.Transparent
+import androidx.compose.ui.graphics.Color.Companion.White
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -32,16 +39,25 @@ import com.example.kef.utils.AppBar
 import com.example.kef.utils.elevation
 import com.google.accompanist.pager.ExperimentalPagerApi
 
+@OptIn(ExperimentalFoundationApi::class)
 @ExperimentalPagerApi
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+) {
     val lazyListState = rememberLazyListState()
+
 
         Column(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
-                .background(Color.White)
+                .background(
+                    Brush.verticalGradient(
+                        listOf(
+                            Color.Black, Color.DarkGray
+                        )
+                    )
+                )
 
         ) {
 
@@ -50,43 +66,47 @@ fun HomeScreen() {
                 item {
                     Introduction()
                 }
+
                 item {
                     Feature(
                         "GIFT A STUDENT TODAY!",
                         "Giving is not just about making a donation, it's about making a difference",
-                        painterResource(id = R.drawable.img_3),
+                        painterResource(id = R.drawable.wing),
                         "Donate Now",
                         Brush.horizontalGradient(
                             listOf(
-                                Color(0x39FF5722), Color(0xFFFF5722)
+                                Color(0xFF3D5AFE),Color(0xFF00E676)
                             )
-                        )
+                        ),
+                        ContentScale.Fit
                     )
                 }
                 item {
                     Feature(
                         "How to Apply",
                         "Looking for a HighSchool Scholarship in Kenya?",
-                        painterResource(id = R.drawable.img_2),
+                        painterResource(id = R.drawable.canvas),
                         "Apply Now",
                         Brush.horizontalGradient(
                             listOf(
-                                Color(0xFF58DACE), Color(0xFF009688)
+                                Color(0xFFFF9100),Color(0xFFFF3D00)
                             )
-                        )
+                        ),
+                        ContentScale.Fit
                     )
                 }
                 item {
                     Feature(
                         "Finfinancials",
                         "contribute to our mission while enjoying some financial benefits",
-                        painterResource(id = R.drawable.finfin),
+                        painterResource(id = R.drawable.finfinn),
                         "Gift Now",
                         Brush.horizontalGradient(
                             listOf(
-                                Color(0x39FF5722), Color(0xFFFF3D00)
+                                Color(0xFF651FFF), Color(0xFFD500F9)
                             )
-                        )
+                        ),
+                        ContentScale.Fit
                     )
                 }
                 item {
@@ -95,24 +115,26 @@ fun HomeScreen() {
                         "Join the global movement to increase access to education",
                         painterResource(id = R.drawable.ambassadorr),
                         "Join",
-                        Brush.horizontalGradient(
+                        Brush.verticalGradient(
                             listOf(
-                                Color(0xFF58DACE), Color(0xFF4CAF50)
+                                Color(0xFF95D360), Color(0xFF4CAF50)
                             )
-                        )
+                        ),
+                        ContentScale.Fit
                     )
                 }
                 item {
                     Feature(
                         "GIFT IN SECURITIES",
                         "contribute to our mission while enjoying some financial benefits",
-                        painterResource(id = R.drawable.secure),
+                        painterResource(id = R.drawable.box),
                         "Gift Now",
-                            Brush.horizontalGradient(
+                            Brush.verticalGradient(
                                 listOf(
-                                    Color(0x39FF5722), Color(0xFFF44336)
+                                    Color(0xFFFFC400),Color(0xFFC04F2C)
                                 )
-                            )
+                            ),
+                        ContentScale.FillWidth
                     )
                 }
 
@@ -127,13 +149,18 @@ fun HomeScreen() {
 }
 
 @Composable
-fun Feature(title: String, sub: String, image: Painter, Button: String, horizontalGradient: Brush){
-
+fun Feature(title: String, sub: String, image: Painter, Button: String, horizontalGradient: Brush,contentScale:ContentScale){
+    val verticalGradient = Brush.verticalGradient(
+        colors = listOf(MaterialTheme.colors.primary, MaterialTheme.colors.primaryVariant),
+        startY = 0f,
+        endY = 100f
+    )
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(start = 15.dp, end = 15.dp, top = 15.dp),
-        shape = RoundedCornerShape(8.dp),
+            .padding( 15.dp)
+        ,
+        shape = RoundedCornerShape(15.dp),
         elevation = 20.dp
         ) {
             Column(
@@ -145,14 +172,14 @@ fun Feature(title: String, sub: String, image: Painter, Button: String, horizont
             ) {
                 Image(painter = image,
                     contentDescription = "profile",
-                    contentScale = ContentScale.Fit,
+                    contentScale = contentScale,
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(200.dp)
-                        .padding(bottom = 20.dp)
-                        .background(Color.White)
+                        //.padding(bottom = 20.dp)
+                        .background(Color.Transparent)
                     )
-                Spacer(modifier = Modifier.height(20.dp))
+                Spacer(modifier = Modifier.height(5.dp))
                 Box(modifier = Modifier
                     .fillMaxSize()
                 ) {
@@ -160,15 +187,15 @@ fun Feature(title: String, sub: String, image: Painter, Button: String, horizont
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.SpaceBetween,
-            modifier = Modifier
+            modifier = Modifier.padding(20.dp)
            ){
 
 
                 Text(
                     text = title,
-                    color = Color.Black,
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Bold,
+                    color = Color.White,
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.ExtraBold,
                     style = TextStyle(
                         fontFamily = FontFamily.Serif,
                         textAlign = TextAlign.Center
@@ -179,7 +206,7 @@ fun Feature(title: String, sub: String, image: Painter, Button: String, horizont
 
                 Text(
                     text = sub,
-                    color = Color.DarkGray,
+                    color = Color.White,
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Normal,
                     style = TextStyle(
@@ -190,19 +217,22 @@ fun Feature(title: String, sub: String, image: Painter, Button: String, horizont
                 )
                 Spacer(modifier = Modifier.height(15.dp))
                 Button(onClick = { /*TODO*/ },
+                    shape = RoundedCornerShape(25.dp),
                     modifier = Modifier
+                        .height(65.dp)
                         .fillMaxWidth()
-                        .padding(start = 40.dp, end = 40.dp, bottom = 10.dp)
+                        .padding(start = 30.dp, end =30.dp, bottom = 20.dp)
                     ,
                     colors = ButtonDefaults.buttonColors(
-
-                        backgroundColor = Color(0xFF4CAF50),
-                                contentColor = Color.White,
+                        backgroundColor = Color.White,
+                                contentColor = Color.LightGray,
                     )
                     ) {
                     Text(
                         text = Button,
-                        color = Color.White
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 20.sp,
+                        color = Color.Black
                         )
 
                 }}
@@ -213,18 +243,31 @@ fun Feature(title: String, sub: String, image: Painter, Button: String, horizont
 
 @Composable
 fun Introduction(){
-Box(modifier = Modifier.fillMaxSize()){
-    Image(
-        painter = painterResource(id = R.drawable.group),
-        contentDescription = "background",
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(300.dp)
-        ,
-        contentScale = ContentScale.Crop
-    )
+    BoxWithConstraints(modifier = Modifier.fillMaxSize()){
+
+    Box(modifier = Modifier
+        .fillMaxSize()
+        .background(
+            Brush.verticalGradient(
+                colors = listOf(
+                    Color.White,
+                    Color.White
+                ),
+                startY = 300f
+            )
+        )
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.group),
+            contentDescription = "background",
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(150.dp),
+            contentScale = ContentScale.Crop
+        )
+    }
     Text(
-        modifier=  Modifier
+        modifier= Modifier
             .align(Alignment.BottomCenter)
             .padding(bottom = 10.dp)
         ,
@@ -249,13 +292,13 @@ Box(modifier = Modifier.fillMaxSize()){
 
         },
         style = MaterialTheme.typography.body1,
-        color =  Color.Green,
+        color =  Color(0xFFD500F9),
         fontSize = 13.sp,
         fontFamily = FontFamily.Cursive,
         fontWeight = FontWeight.Bold,
         // textDecoration = TextDecoration.Underline,
     )
-}
 
 }
 
+}

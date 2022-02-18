@@ -9,6 +9,7 @@
         android:roundIcon="@drawable/new_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.KEF">
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -19,6 +20,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
     </application>
 
