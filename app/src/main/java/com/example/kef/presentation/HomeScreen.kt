@@ -134,7 +134,7 @@ fun HomeScreen(
                                     Color(0xFFFFC400),Color(0xFFC04F2C)
                                 )
                             ),
-                        ContentScale.FillWidth
+                        ContentScale.Fit
                     )
                 }
 
@@ -175,7 +175,7 @@ fun Feature(title: String, sub: String, image: Painter, Button: String, horizont
                     contentScale = contentScale,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(200.dp)
+                        .size(150.dp)
                         //.padding(bottom = 20.dp)
                         .background(Color.Transparent)
                     )
