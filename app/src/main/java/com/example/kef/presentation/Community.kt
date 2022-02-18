@@ -37,6 +37,7 @@ import androidx.compose.ui.graphics.Color.Companion.Blue
 import androidx.compose.ui.graphics.Color.Companion.Green
 import androidx.compose.ui.graphics.Color.Companion.LightGray
 import androidx.compose.ui.graphics.Color.Companion.White
+import androidx.compose.ui.graphics.Color.Companion.Yellow
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.sp
 import com.example.kef.R
@@ -54,24 +55,23 @@ fun Community() {
         Column(
             Modifier
                 .fillMaxWidth()
-
                 .verticalScroll(rememberScrollState())
                 .background(
-                    Brush.horizontalGradient(
+                    Brush.verticalGradient(
                         listOf(
-                            Color.DarkGray, Color.Black
+                            Color(0xFF704409), Color.Black
                         )
                     )
                 )
-                .padding(horizontal = horizontalPadding)
+                .padding(horizontal = horizontalPadding),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Spacer(modifier = Modifier.height(24.dp))
-            Text(text = "KEF Alumni", fontWeight = FontWeight.Bold, fontSize = 24.sp,color = Color.White)
-            Text(text = "Ambitious person aren't you?", fontWeight = FontWeight.SemiBold, fontSize = 16.sp, color = Color.White)
+            Text(text = "Ambitious person aren't you?", fontWeight = FontWeight.Bold, fontSize = 16.sp, color = Color.White)
             Spacer(modifier = Modifier.height(24.dp))
 
 
-            Card(modifier=Modifier, backgroundColor = Color.Gray, elevation = 4.dp, contentColor = Color.Black) {
+            Card(modifier=Modifier, backgroundColor = Color(0xFF814F0E), elevation = 4.dp, contentColor = Color.Black) {
 
                 Row(
                     Modifier
@@ -82,20 +82,19 @@ fun Community() {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.alumni_logo),
+                        painter = painterResource(id = R.drawable.new_logo),
                         contentDescription = "background",
                         modifier = Modifier
-                            .background(Color(0xFF52340D))
                             .size(150.dp),
-                        contentScale = ContentScale.Crop
+                        contentScale = ContentScale.Fit
                     )
                     Column(
                         Modifier
                             .padding(horizontal = 4.dp)
                             .weight(1f)
                     ) {
-                        Text(text = "KEF Alumni", color = Color.White)
-                        Text(text = "subtitle", fontSize = 12.sp, color = Color.White)
+                        Text(text = "KEF Alumni", color = Color.Yellow)
+                        Text(text = "join us today", fontSize = 12.sp, color = Color.White)
                     }
                     IconButton(onClick = {}, modifier = Modifier.align(Alignment.Top)) {
                         Icon(imageVector = Icons.Default.MoreVert, contentDescription = "More")
@@ -108,7 +107,7 @@ fun Community() {
             Row(Modifier.fillMaxWidth()) {
                 BigButton(
                     icon = Icons.Default.Home,
-                    iconTint = Color.LightGray,
+                    iconTint = Color.Yellow,
                     title = "Open Day",
                     subtitle = "Give back to the community   ",
                     reminder = "Every Day",
@@ -119,7 +118,7 @@ fun Community() {
                 Spacer(modifier = Modifier.width(8.dp))
                 BigButton(
                     icon = Icons.Default.Favorite,
-                    iconTint =  Color.LightGray,
+                    iconTint = Color.Yellow,
                     title = "Rotarant Voices",
                     subtitle = "Because your are greatfull",
                     reminder = "Every Day",
@@ -130,7 +129,7 @@ fun Community() {
                 )
             }
             Spacer(modifier = Modifier.height(32.dp))
-            Text(text = "What we do", fontWeight = FontWeight.SemiBold, fontSize = 24.sp, color = Color.White)
+            Text(text = "What we do", fontWeight = FontWeight.SemiBold, fontSize = 24.sp, color = Color.White, textAlign = TextAlign.Center)
             Text(text = "Video,press,awards", fontWeight = FontWeight.SemiBold, fontSize = 16.sp, color = Color.White)
             Spacer(modifier = Modifier.height(16.dp))
             Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -150,7 +149,7 @@ fun Community() {
                     subtitle = "Watch CodingArk new videos",
                     modifier = Modifier.clickable { })
             }
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(50.dp))
         }
     }
 }
@@ -165,14 +164,13 @@ fun BigButton(
     reminder: String,
     modifier: Modifier = Modifier
 ) {
-    Card(backgroundColor =  Color.Gray, elevation = 0.dp, modifier = modifier, contentColor = Color.White) {
+    Card(backgroundColor =  Color(0xFF814F0E), elevation = 0.dp, modifier = modifier, contentColor = Color.White) {
         Column(Modifier.padding(16.dp)) {
             Icon(imageVector = icon, contentDescription = "Icon", tint = iconTint, modifier = Modifier.size(52.dp))
-            Text(text = title, fontWeight = FontWeight.SemiBold, fontSize = 18.sp)
+            Text(text = title, fontWeight = FontWeight.SemiBold, fontSize = 18.sp, color = Color.White)
             Text(text = subtitle, fontWeight = FontWeight.Medium, fontSize = 12.sp)
             Spacer(modifier = Modifier.height(16.dp))
-            Text(text = "Reminder", fontWeight = FontWeight.Light, fontSize = 10.sp, color = Color.Gray)
-            Text(text = reminder, fontWeight = FontWeight.SemiBold, fontSize = 10.sp)
+            Text(text = reminder, fontWeight = FontWeight.SemiBold, fontSize = 10.sp, color = Color(0xFFFFEA00))
         }
     }
 }
@@ -184,7 +182,7 @@ fun TaskItem(
     subtitle: String,
     modifier: Modifier = Modifier
 ) {
-    Card(modifier, backgroundColor = Color.Gray, elevation = 4.dp, contentColor = Color.Black) {
+    Card(modifier, backgroundColor = Color(0xFF814F0E), elevation = 4.dp, contentColor = Color.Black) {
         Row(
             Modifier
                 .padding(16.dp)
@@ -195,25 +193,24 @@ fun TaskItem(
             Icon(
                 imageVector = icon,
                 contentDescription = "Icon",
-                tint = White,
+                tint = Yellow,
                 modifier = Modifier
                     .fillMaxHeight()
                     .aspectRatio(1f)
-                    .background(Color.Gray
+                    .background(Color.Transparent
                         , RoundedCornerShape(8.dp))
                     .padding(8.dp)
             )
             Column(
                 Modifier
                     .padding(horizontal = 4.dp)
-                    .background(Color.Gray)
                     .weight(1f)
             ) {
                 Text(text = title, color = White)
                 Text(text = subtitle, fontSize = 12.sp, color = Color.White)
             }
             IconButton(onClick = {}, modifier = Modifier.align(Alignment.Top)) {
-                Icon(imageVector = Icons.Default.MoreVert, contentDescription = "More")
+                Icon(tint = Yellow,imageVector = Icons.Default.MoreVert, contentDescription = "More")
             }
         }
     }
