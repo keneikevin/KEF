@@ -6,6 +6,7 @@ data class Page(val title: String , val description : String,
                 @DrawableRes val image: Int)
 
 
+
 data class IntroModel(
     val title:String,
     val imagUrl:String

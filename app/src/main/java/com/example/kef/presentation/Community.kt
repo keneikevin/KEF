@@ -54,6 +54,7 @@ fun Community() {
     val horizontalPadding = 16.dp
     val lazyListState = rememberLazyListState()
     Scaffold(
+
     ) {
         Column(
             Modifier

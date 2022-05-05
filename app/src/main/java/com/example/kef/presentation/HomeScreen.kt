@@ -109,6 +109,8 @@ fun HomeScree(modifier: Modifier= Modifier.background(Color.Black)){
                             .weight(1f)
                             .clickable { }
                     )
+
+
                     Big(
                         painterResource(id = R.drawable.finfinn),
                         title = "",

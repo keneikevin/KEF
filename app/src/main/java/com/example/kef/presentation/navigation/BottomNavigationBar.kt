@@ -61,6 +61,7 @@ fun BottomNavigationBar(
                             }
                         } else {
                             Icon(
+
                                 imageVector = item.icon,
                                 contentDescription = item.name
                             )

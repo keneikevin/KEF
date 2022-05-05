@@ -48,6 +48,8 @@ class MainActivity : ComponentActivity() {
                     Scaffold(
                         bottomBar = {
 
+
+
                             BottomNavigationBar(
                                 items = listOf(
                                     BottomNavItem(
