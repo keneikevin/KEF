@@ -1,25 +1,25 @@
 package com.example.kef.presentation
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.GraphicEq
+import androidx.compose.material.icons.outlined.SpeakerGroup
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.BottomCenter
+import androidx.compose.ui.Alignment.Companion.Center
+import androidx.compose.ui.Alignment.Companion.CenterHorizontally
+import androidx.compose.ui.Alignment.Companion.TopCenter
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Color.Companion.Black
-import androidx.compose.ui.graphics.Color.Companion.Transparent
-import androidx.compose.ui.graphics.Color.Companion.White
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -34,251 +34,279 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.kef.R
-import com.example.kef.other.*
-import com.example.kef.utils.AppBar
-import com.example.kef.utils.elevation
-import com.google.accompanist.pager.ExperimentalPagerApi
 
-@OptIn(ExperimentalFoundationApi::class)
-@ExperimentalPagerApi
 @Composable
-fun HomeScreen(
-) {
+fun HomeScree(modifier: Modifier= Modifier.background(Color.Black)){
     val lazyListState = rememberLazyListState()
-
-
-        Column(
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier
-                .background(
-                    Brush.verticalGradient(
-                        listOf(
-                            Color.Black, Color.DarkGray
-                        )
+    Column(
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .background(
+                Brush.verticalGradient(
+                    listOf(
+                        Color.Black, Color.DarkGray
                     )
                 )
+            )
 
-        ) {
+    ) {
+        LazyColumn(state = lazyListState, contentPadding = PaddingValues(bottom = 25.dp)) {
+            modifier.background(Color.Black)
+
+            item {
+                Introduction()
+            }
 
 
-            LazyColumn(state = lazyListState, contentPadding = PaddingValues(bottom = 25.dp)) {
-                item {
-                    Introduction()
-                }
-
-                item {
-                    Feature(
-                        "GIFT A STUDENT TODAY!",
-                        "Giving is not just about making a donation, it's about making a difference",
-                        painterResource(id = R.drawable.wing),
-                        "Donate Now",
-                        Brush.horizontalGradient(
-                            listOf(
-                                Color(0xFF3D5AFE),Color(0xFF00E676)
-                            )
-                        ),
-                        ContentScale.Fit
-                    )
-                }
-                item {
-                    Feature(
-                        "How to Apply",
-                        "Looking for a HighSchool Scholarship in Kenya?",
+            item {
+                Row() {
+                    Big(
                         painterResource(id = R.drawable.canvas),
-                        "Apply Now",
-                        Brush.horizontalGradient(
+                        title = "",
+                        subtitle = "How to Apply",
+                        reminder = "Looking for a HighSchool Scholarship in Kenya?",
+                        horizontalGradient =   Brush.horizontalGradient(
                             listOf(
-                                Color(0xFFFF9100),Color(0xFFFF3D00)
+                                Color(0xFF00E676),Color(0xFF3D5AFE)
                             )
                         ),
-                        ContentScale.Fit
+                        modifier = Modifier
+                            .weight(1f)
+                            .clickable { }
                     )
-                }
-                item {
-                    Feature(
-                        "Finfinancials",
-                        "contribute to our mission while enjoying some financial benefits",
-                        painterResource(id = R.drawable.finfinn),
-                        "Gift Now",
-                        Brush.horizontalGradient(
-                            listOf(
-                                Color(0xFF651FFF), Color(0xFFD500F9)
-                            )
-                        ),
-                        ContentScale.Fit
-                    )
-                }
-                item {
-                    Feature(
-                        "BECOME A KEF AMBASSADOR",
-                        "Join the global movement to increase access to education",
-                        painterResource(id = R.drawable.ambassadorr),
-                        "Join",
-                        Brush.verticalGradient(
-                            listOf(
-                                Color(0xFF95D360), Color(0xFF4CAF50)
-                            )
-                        ),
-                        ContentScale.Fit
-                    )
-                }
-                item {
-                    Feature(
-                        "GIFT IN SECURITIES",
-                        "contribute to our mission while enjoying some financial benefits",
+                    Big(
                         painterResource(id = R.drawable.box),
-                        "Gift Now",
-                            Brush.verticalGradient(
-                                listOf(
-                                    Color(0xFFFFC400),Color(0xFFC04F2C)
-                                )
-                            ),
-                        ContentScale.Fit
+                        title = "",
+                        subtitle = "Gift a Student",
+                        horizontalGradient = Brush.horizontalGradient(
+                            listOf(
+                                Color(0xFFFFC400),Color(0xFFC04F2C)
+                            )
+                        ),
+                        reminder = "Giving is not just about making a donation, it's about making a difference.",
+                        modifier = Modifier
+                            .weight(1f)
+                            .clickable { }
                     )
+
                 }
+            }
 
-                item {
+            item {
+                Row() {
+                    Big(
+                        painterResource(id = R.drawable.alumni),
+                        title = "KEF ",
+                        subtitle = "Join Alumni Association",
+                        reminder = "Are you a KEF benefitiary",
+                        horizontalGradient = Brush.verticalGradient(
+                            listOf(
+                                Color(0xFFFFC400),Color(0xFFC04F2C)
+                            )
+                        ),
+                        modifier = Modifier
+                            .weight(1f)
+                            .clickable { }
+                    )
+                    Big(
+                        painterResource(id = R.drawable.finfinn),
+                        title = "",
+                        subtitle = "Finfinancial",
+                        reminder = "How is my donation being used?",
+                        horizontalGradient = Brush.verticalGradient(
+                            listOf(
+                                 Color(0xFFD500F9),Color(0xFF651FFF)
+                            )
+                        ),
+                        modifier = Modifier
+                            .weight(1f)
+                            .clickable { }
+                    )
 
-                    Spacer(modifier = Modifier.height(50.dp))
                 }
+            }
 
+            item {
+                sponsor()
+            }
+            item {
+                subs()
             }
         }
-
+    }
 }
 
+
 @Composable
-fun Feature(title: String, sub: String, image: Painter, Button: String, horizontalGradient: Brush,contentScale:ContentScale){
-    val verticalGradient = Brush.verticalGradient(
-        colors = listOf(MaterialTheme.colors.primary, MaterialTheme.colors.primaryVariant),
-        startY = 0f,
-        endY = 100f
-    )
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding( 15.dp)
-        ,
-        shape = RoundedCornerShape(15.dp),
-        elevation = 20.dp
-        ) {
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(horizontalGradient),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Top
-            ) {
-                Image(painter = image,
-                    contentDescription = "profile",
-                    contentScale = contentScale,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .size(150.dp)
-                        //.padding(bottom = 20.dp)
-                        .background(Color.Transparent)
-                    )
-                Spacer(modifier = Modifier.height(5.dp))
-                Box(modifier = Modifier
-                    .fillMaxSize()
-                ) {
-
+fun Big(
+    image: Painter,
+    title: String,
+    horizontalGradient: Brush,
+    subtitle: String,
+    reminder: String,
+    modifier: Modifier = Modifier
+) {
+    Card( elevation = 10.dp, modifier = modifier
+        .padding(5.dp)
+        .height(180.dp), contentColor = Color.White, shape = RoundedCornerShape(7.dp)) {
         Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.SpaceBetween,
-            modifier = Modifier.padding(20.dp)
-           ){
+            Modifier
+                .background(horizontalGradient),
+            verticalArrangement = Arrangement.SpaceEvenly,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Image(painter = image,
+                contentScale = ContentScale.Fit,
+                contentDescription = "profile",
+                modifier = Modifier
+                    .size(100.dp)
+                    .align(CenterHorizontally))
+           Text(text = reminder, fontWeight = FontWeight.Bold, fontSize = 12.sp, color = Color.White, textAlign = TextAlign.Center, modifier = modifier.padding(5.dp))
 
-
-                Text(
-                    text = title,
-                    color = Color.White,
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.ExtraBold,
-                    style = TextStyle(
-                        fontFamily = FontFamily.Serif,
-                        textAlign = TextAlign.Center
-                    )
-                )
-
-                Spacer(modifier = Modifier.height(20.dp))
-
-                Text(
-                    text = sub,
-                    color = Color.White,
-                    fontSize = 15.sp,
-                    fontWeight = FontWeight.Normal,
-                    style = TextStyle(
-                        fontFamily = FontFamily.Serif,
-                        textAlign = TextAlign.Center
-                    )
-
-                )
-                Spacer(modifier = Modifier.height(15.dp))
-                Button(onClick = { /*TODO*/ },
-                    shape = RoundedCornerShape(25.dp),
-                    modifier = Modifier
-                        .height(65.dp)
-                        .fillMaxWidth()
-                        .padding(start = 30.dp, end =30.dp, bottom = 20.dp)
-                    ,
-                    colors = ButtonDefaults.buttonColors(
-                        backgroundColor = Color.White,
-                                contentColor = Color.LightGray,
-                    )
-                    ) {
-                    Text(
-                        text = Button,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 20.sp,
-                        color = Color.Black
-                        )
-
-                }}
-                Spacer(modifier = Modifier.height(30.dp))
-            }}
+            Spacer(modifier = Modifier.height(5.dp))
+                Text(text = subtitle, fontWeight = FontWeight.ExtraBold, fontSize = 10.sp,color = Color.Black ,textAlign = TextAlign.Center)
+            Spacer(modifier = Modifier.height(10.dp))
+        }
     }
 }
 
 @Composable
-fun Introduction(){
-    BoxWithConstraints(modifier = Modifier.fillMaxSize()){
-
-    Box(modifier = Modifier
+fun subs(modifier: Modifier= Modifier){
+    Card(
+        shape = RoundedCornerShape(11.dp),
+        elevation = 10.dp, modifier = modifier
+            .height(450.dp)
+            .padding(20.dp)
+    ) {
+    Box(
+    modifier = Modifier
         .fillMaxSize()
-        .background(
-            Brush.verticalGradient(
-                colors = listOf(
-                    Color.White,
-                    Color.White
-                ),
-                startY = 300f
-            )
+        .background(Color.Gray)
+    ) {
+
+        Image(
+            painter = painterResource(id = R.drawable.invite),
+            contentDescription = "background",
+            modifier = modifier
+                .fillMaxWidth(),
+            contentScale = ContentScale.Fit
         )
+        Text(
+            text = "Spread the word!",
+            fontWeight = FontWeight.Bold,
+            fontSize = 25.sp,
+            color =  Color.Black,
+            textAlign = TextAlign.Center,
+            modifier = modifier
+                .align(TopCenter)
+                .padding(top = 5.dp)
+        )
+
+        OutlinedButton(
+            modifier= modifier
+                .align(Center)
+                .padding(bottom = 50.dp),
+            onClick = {},
+            colors = ButtonDefaults.outlinedButtonColors(
+                backgroundColor = Color.White,
+            )
+        ) {
+            Text(
+                text = "Invite Friends",
+                color = Color.Black,
+                fontWeight = FontWeight.Bold,
+                style = TextStyle(
+                    fontFamily = FontFamily.Monospace,
+                    textAlign = TextAlign.Center
+                )
+            )
+        }
+
+
+
+            Text(
+                modifier = modifier
+                    .align(BottomCenter)
+                    .padding(start = 30.dp, end = 30.dp, bottom = 20.dp),
+                text = "Invite your friends and family let's share and gift student together.",
+                fontWeight = FontWeight.SemiBold,
+                fontSize = 18.sp, color = Color.White,
+                textAlign = TextAlign.Center)
+
+
+    }
+
+
+
+
+
+    }
+
+}
+
+@Composable
+fun sponsor(){
+
+    Card(
+        shape = RoundedCornerShape(15.dp),
+        modifier = Modifier
+            .padding(top = 10.dp, bottom = 20.dp, start = 20.dp, end = 20.dp)
+            .height(155.dp)
+            .fillMaxWidth()) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .background(Color.LightGray)
     ) {
         Image(
-            painter = painterResource(id = R.drawable.group),
+            painter = painterResource(id = R.drawable.litworld),
             contentDescription = "background",
             modifier = Modifier
-                .fillMaxWidth()
-                .height(150.dp),
-            contentScale = ContentScale.Crop
+                .padding(top = 5.dp)
+                .height(100.dp)
+                .background(Color.Transparent),
+            contentScale = ContentScale.FillBounds
         )
+        OutlinedButton(
+            onClick = {},
+            colors = ButtonDefaults.outlinedButtonColors(
+                backgroundColor = Color.White,
+            )
+        ) {
+            Text(
+                text = "Partners",
+                color = Color.Black,
+                fontWeight = FontWeight.SemiBold,
+                style = TextStyle(
+                    fontFamily = FontFamily.Monospace,
+                    textAlign = TextAlign.Center
+                )
+            )
+        }
     }
+
+
+    }
+}
+
+@Composable
+fun subss(modifier: Modifier= Modifier){
+
     Text(
+        textAlign = TextAlign.Center,
         modifier= Modifier
-            .align(Alignment.BottomCenter)
-            .padding(bottom = 10.dp)
+           // .align(Alignment.TopCenter)
+            .padding(top=10.dp,bottom=10.dp,start=15.dp,end=10.dp)
         ,
         text = buildAnnotatedString {
             val text = stringResource(id = R.string.numbers)
 
             withStyle(
                 style = SpanStyle(
-                    color = Color.Yellow,
+                    color =  Color(0xFF76FF03),
                     fontSize = 13.sp,
-                    fontFamily = FontFamily.Monospace,
+                    fontFamily = FontFamily.Cursive,
 
                     fontWeight = FontWeight.Bold,
                     //textDecoration = TextDecoration.Underline,
@@ -292,13 +320,37 @@ fun Introduction(){
 
         },
         style = MaterialTheme.typography.body1,
-        color =  Color(0xFFD500F9),
+        color =  Color(0xFFFFC400),
         fontSize = 13.sp,
-        fontFamily = FontFamily.Cursive,
-        fontWeight = FontWeight.Bold,
+        fontFamily = FontFamily.Monospace,
+        fontWeight = FontWeight.ExtraBold,
         // textDecoration = TextDecoration.Underline,
     )
+        Card(
+            shape = RoundedCornerShape(10.dp),
+            elevation = 50.dp, modifier = modifier
+                .padding(bottom =20.dp, top = 5.dp, start = 0.dp, end = 0.dp)
+        ) {
 
-}
+            Box(modifier = Modifier
+                .fillMaxSize()
+                .padding(),
+                contentAlignment = TopCenter
+            ) {
+
+                Image(
+                    painter = painterResource(id = R.drawable.we),
+                    contentDescription = "background",
+                    modifier = modifier
+                        .fillMaxSize(),
+                    contentScale = ContentScale.Fit
+                )
+
+            }
+
+        }
+
+
+
 
 }

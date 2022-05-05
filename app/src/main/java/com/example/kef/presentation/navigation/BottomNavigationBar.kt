@@ -44,13 +44,13 @@ fun BottomNavigationBar(
             BottomNavigationItem(
                 selected = selected,
                 onClick = { onItemClick(item) },
-                selectedContentColor = Color(0xFFFAFAFA),
+                selectedContentColor = Color(0xFFFFC400),
                 unselectedContentColor = Color.Gray,
                 icon = {
                     Column(horizontalAlignment = CenterHorizontally) {
                         if(item.badgeCount > 0) {
-                            BadgeBox(
-                                badgeContent = {
+                            BadgedBox(
+                                badge = {
                                     Text(text = item.badgeCount.toString())
                                 }
                             ) {

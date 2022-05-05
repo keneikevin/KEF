@@ -44,6 +44,7 @@ class MainActivity : ComponentActivity() {
                 Surface(color = MaterialTheme.colors.background) {
 
                     val navController = rememberNavController()
+                   // HomeScree()
                     Scaffold(
                         bottomBar = {
 
@@ -53,11 +54,6 @@ class MainActivity : ComponentActivity() {
                                         name = "Home",
                                         route = "home",
                                         icon = Icons.Default.Home
-                                    ),
-                                    BottomNavItem(
-                                        name = "Subscription",
-                                        route = "subscription",
-                                        icon = Icons.Default.Favorite
                                     ),
                                     BottomNavItem(
                                         name = "Community",
@@ -87,7 +83,7 @@ class MainActivity : ComponentActivity() {
 fun Navigation(navController: NavHostController) {
     NavHost(navController = navController, startDestination = "home") {
         composable("home") {
-            HomeScreen()
+            HomeScree()
         }
         composable("subscription") {
             Subscribe()
