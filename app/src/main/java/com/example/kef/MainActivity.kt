@@ -47,9 +47,6 @@ class MainActivity : ComponentActivity() {
                    // HomeScree()
                     Scaffold(
                         bottomBar = {
-
-
-
                             BottomNavigationBar(
                                 items = listOf(
                                     BottomNavItem(
