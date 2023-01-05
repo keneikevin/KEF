@@ -260,12 +260,12 @@ fun Introduction(){
         )
     ) {
         Image(
-            painter = painterResource(id = R.drawable.group),
+            painter = painterResource(id = R.drawable.groupp),
             contentDescription = "background",
             modifier = Modifier
                 .fillMaxWidth()
-                .height(150.dp),
-            contentScale = ContentScale.Crop
+                .height(120.dp),
+            contentScale = ContentScale.FillBounds
         )
 
     }

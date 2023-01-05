@@ -5,10 +5,14 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Backup
+import androidx.compose.material.icons.filled.Dining
+import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.GraphicEq
 import androidx.compose.material.icons.outlined.SpeakerGroup
 import androidx.compose.runtime.Composable
@@ -22,6 +26,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
@@ -57,7 +62,6 @@ fun HomeScree(modifier: Modifier= Modifier.background(Color.Black)){
             item {
                 Introduction()
             }
-
 
             item {
                 Row() {
@@ -96,10 +100,10 @@ fun HomeScree(modifier: Modifier= Modifier.background(Color.Black)){
             item {
                 Row() {
                     Big(
-                        painterResource(id = R.drawable.alumni),
+                        painterResource(id = R.drawable.wing),
                         title = "KEF ",
-                        subtitle = "Join Alumni Association",
-                        reminder = "Are you a KEF benefitiary",
+                        subtitle = "",
+                        reminder = "Our Process",
                         horizontalGradient = Brush.verticalGradient(
                             listOf(
                                 Color(0xFFFFC400),Color(0xFFC04F2C)
@@ -128,13 +132,25 @@ fun HomeScree(modifier: Modifier= Modifier.background(Color.Black)){
 
                 }
             }
-
             item {
-                sponsor()
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+
+                Text(
+                    modifier = Modifier.align(CenterHorizontally).padding(start = 50.dp),
+                    text = "Events near you!",
+                    fontWeight = FontWeight.SemiBold,
+                    textAlign = TextAlign.Center,
+                    fontSize = 16.sp, color = Color.White
+                )
+            }}
+            item {
+                eventss()
             }
+
             item {
                 subs()
             }
+
         }
     }
 }
@@ -351,8 +367,67 @@ fun subss(modifier: Modifier= Modifier){
             }
 
         }
+}
+@Composable fun eventss(){
+    val lazyListState = rememberLazyListState()
+    Spacer(modifier = Modifier.height(7.dp))
+    LazyRow(state = lazyListState, contentPadding = PaddingValues(bottom = 25.dp, start = 10.dp)) {
+        Modifier.background(Color.Black)
 
+        item {
+            BigButton(
+                icon = Icons.Default.GraphicEq,
+                iconTint = Color(0xFFFFC400),
+                title = "Open Day",
+                subtitle = "Give back to the community   ",
+                reminder = "Every Day",
+                modifier = Modifier
+                 //   .weight(1f)
+                    .clickable { }
+            )
+            Spacer(modifier = Modifier.width(13.dp))
+        }
+        item {
 
+            BigButton(
+                icon = Icons.Default.Face,
+                iconTint = Color(0xFFFFC400),
+                title = "LitWorld's Program",
+                subtitle = "Give back to the community   ",
+                reminder = "Every Day",
+                modifier = Modifier
+                  //  .weight(1f)
+                    .clickable { }
+            )
+            Spacer(modifier = Modifier.width(8.dp))
+        }
+        item {
 
+            BigButton(
+                icon = Icons.Default.Backup,
+                iconTint = Color(0xFFFFC400),
+                title = "Global Education Campain",
+                subtitle = "Join us",
+                reminder = "13 Feb",
+                modifier = Modifier
+                  //  .weight(1f)
+                    .clickable { }
+            )
+            Spacer(modifier = Modifier.width(8.dp))
+        }
+        item {
 
+            BigButton(
+                icon = Icons.Default.Dining,
+                iconTint = Color(0xFFFFC400),
+                title = "Bridge To Employment",
+                subtitle = "Give back to the community   ",
+                reminder = "Every Day",
+                modifier = Modifier
+                   // .weight(1f)
+                    .clickable { }
+            )
+            Spacer(modifier = Modifier.width(8.dp))
+        }
+    }
 }

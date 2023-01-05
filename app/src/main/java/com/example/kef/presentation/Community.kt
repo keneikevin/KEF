@@ -114,66 +114,7 @@ fun Community() {
                 fontSize = 16.sp, color = Color.White
             )
             Spacer(modifier = Modifier.height(14.dp))
-            LazyRow(state = lazyListState, contentPadding = PaddingValues(bottom = 25.dp)) {
-                Modifier.background(Color.Black)
-
-                item {
-
-                    BigButton(
-                        icon = Icons.Default.GraphicEq,
-                        iconTint = Color(0xFFFFC400),
-                        title = "Open Day",
-                        subtitle = "Give back to the community   ",
-                        reminder = "Every Day",
-                        modifier = Modifier
-                            .weight(1f)
-                            .clickable { }
-                    )
-                    Spacer(modifier = Modifier.width(8.dp))
-                }
-                item {
-
-                    BigButton(
-                        icon = Icons.Default.Face,
-                        iconTint = Color(0xFFFFC400),
-                        title = "LitWorld's Program",
-                        subtitle = "Give back to the community   ",
-                        reminder = "Every Day",
-                        modifier = Modifier
-                            .weight(1f)
-                            .clickable { }
-                    )
-                    Spacer(modifier = Modifier.width(8.dp))
-                }
-                item {
-
-                    BigButton(
-                        icon = Icons.Default.Backup,
-                        iconTint = Color(0xFFFFC400),
-                        title = "Global Education Campain",
-                        subtitle = "Join us",
-                        reminder = "13 Feb",
-                        modifier = Modifier
-                            .weight(1f)
-                            .clickable { }
-                    )
-                    Spacer(modifier = Modifier.width(8.dp))
-                }
-                item {
-
-                    BigButton(
-                        icon = Icons.Default.Dining,
-                        iconTint = Color(0xFFFFC400),
-                        title = "Bridge To Employment",
-                        subtitle = "Give back to the community   ",
-                        reminder = "Every Day",
-                        modifier = Modifier
-                            .weight(1f)
-                            .clickable { }
-                    )
-                    Spacer(modifier = Modifier.width(8.dp))
-                }
-            }
+            sponsor()
 
 //            Spacer(modifier = Modifier.height(10.dp))
 //            Text(text = "What we do", fontWeight = FontWeight.SemiBold, fontSize = 24.sp, color = White, textAlign = TextAlign.Center)

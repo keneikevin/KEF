@@ -44,32 +44,33 @@ class MainActivity : ComponentActivity() {
                 Surface(color = MaterialTheme.colors.background) {
 
                     val navController = rememberNavController()
-                   // HomeScree()
-                    Scaffold(
-                        bottomBar = {
-                            BottomNavigationBar(
-                                items = listOf(
-                                    BottomNavItem(
-                                        name = "Home",
-                                        route = "home",
-                                        icon = Icons.Default.Home
-                                    ),
-                                    BottomNavItem(
-                                        name = "Community",
-                                        route = "community",
-                                        icon = Icons.Default.Person
-                                    ),
-                                ),
-                                navController = navController,
-                                onItemClick = {
-                                    navController.navigate(it.route)
-                                }
-                            )
-                        }
-
-                    ) {
-                            Navigation(navController = navController)
-                    }
+                    HomeScree()
+                   // Community()
+//                    Scaffold(
+//                        bottomBar = {
+//                            BottomNavigationBar(
+//                                items = listOf(
+//                                    BottomNavItem(
+//                                        name = "Home",
+//                                        route = "home",
+//                                        icon = Icons.Default.Home
+//                                    ),
+//                                    BottomNavItem(
+//                                        name = "Community",
+//                                        route = "community",
+//                                        icon = Icons.Default.Person
+//                                    ),
+//                                ),
+//                                navController = navController,
+//                                onItemClick = {
+//                                    navController.navigate(it.route)
+//                                }
+//                            )
+//                        }
+//
+//                    ) {
+//                            Navigation(navController = navController)
+//                    }
                 }
             }
         }
