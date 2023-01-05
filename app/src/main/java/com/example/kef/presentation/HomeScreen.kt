@@ -97,41 +97,41 @@ fun HomeScree(modifier: Modifier= Modifier.background(Color.Black)){
                 }
             }
 
-            item {
-                Row() {
-                    Big(
-                        painterResource(id = R.drawable.wing),
-                        title = "KEF ",
-                        subtitle = "",
-                        reminder = "Our Process",
-                        horizontalGradient = Brush.verticalGradient(
-                            listOf(
-                                Color(0xFFFFC400),Color(0xFFC04F2C)
-                            )
-                        ),
-                        modifier = Modifier
-                            .weight(1f)
-                            .clickable { }
-                    )
-
-
-                    Big(
-                        painterResource(id = R.drawable.finfinn),
-                        title = "",
-                        subtitle = "Finfinancial",
-                        reminder = "How is my donation being used?",
-                        horizontalGradient = Brush.verticalGradient(
-                            listOf(
-                                 Color(0xFFD500F9),Color(0xFF651FFF)
-                            )
-                        ),
-                        modifier = Modifier
-                            .weight(1f)
-                            .clickable { }
-                    )
-
-                }
-            }
+//            item {
+//                Row() {
+//                    Big(
+//                        painterResource(id = R.drawable.wing),
+//                        title = "KEF ",
+//                        subtitle = "",
+//                        reminder = "Our Process",
+//                        horizontalGradient = Brush.verticalGradient(
+//                            listOf(
+//                                Color(0xFFFFC400),Color(0xFFC04F2C)
+//                            )
+//                        ),
+//                        modifier = Modifier
+//                            .weight(1f)
+//                            .clickable { }
+//                    )
+//
+//
+//                    Big(
+//                        painterResource(id = R.drawable.finfinn),
+//                        title = "",
+//                        subtitle = "Finfinancial",
+//                        reminder = "How is my donation being used?",
+//                        horizontalGradient = Brush.verticalGradient(
+//                            listOf(
+//                                 Color(0xFFD500F9),Color(0xFF651FFF)
+//                            )
+//                        ),
+//                        modifier = Modifier
+//                            .weight(1f)
+//                            .clickable { }
+//                    )
+//
+//                }
+//            }
             item {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
 
