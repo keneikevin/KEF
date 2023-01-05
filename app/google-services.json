@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "947933189384",
+    "project_id": "k-e-f-26e26",
+    "storage_bucket": "k-e-f-26e26.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:947933189384:android:6399ac3f8d1d9355b348bd",
+        "android_client_info": {
+          "package_name": "com.example.kef"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "947933189384-qqui3dk2ptptd05b0tf0368gkd70p0iv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpxYI220qYJTD1JYcTp_Hvdrxrv6_wMDw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "947933189384-qqui3dk2ptptd05b0tf0368gkd70p0iv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
