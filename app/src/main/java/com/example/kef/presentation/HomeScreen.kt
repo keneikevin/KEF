@@ -50,7 +50,7 @@ fun HomeScree(modifier: Modifier= Modifier.background(Color.Black)){
             .background(
                 Brush.verticalGradient(
                     listOf(
-                        Color.Black, Color.DarkGray
+                        Color.DarkGray, Color.Black
                     )
                 )
             )
@@ -59,9 +59,9 @@ fun HomeScree(modifier: Modifier= Modifier.background(Color.Black)){
         LazyColumn(state = lazyListState, contentPadding = PaddingValues(bottom = 25.dp)) {
             modifier.background(Color.Black)
 
-            item {
-                Introduction()
-            }
+//            item {
+//                Introduction()
+//            }
 
             item {
                 Row() {
@@ -93,7 +93,7 @@ fun HomeScree(modifier: Modifier= Modifier.background(Color.Black)){
                             .weight(1f)
                             .clickable { }
                     )
-
+Spacer(modifier = Modifier.width(10.dp))
                 }
             }
 
@@ -136,7 +136,9 @@ fun HomeScree(modifier: Modifier= Modifier.background(Color.Black)){
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
 
                 Text(
-                    modifier = Modifier.align(CenterHorizontally).padding(start = 50.dp),
+                    modifier = Modifier
+                        .align(CenterHorizontally)
+                        .padding(start = 50.dp),
                     text = "Events near you!",
                     fontWeight = FontWeight.SemiBold,
                     textAlign = TextAlign.Center,
@@ -166,7 +168,7 @@ fun Big(
     modifier: Modifier = Modifier
 ) {
     Card( elevation = 10.dp, modifier = modifier
-        .padding(5.dp)
+        .padding(top = 25.dp, bottom = 15.dp, start = 10.dp)
         .height(180.dp), contentColor = Color.White, shape = RoundedCornerShape(7.dp)) {
         Column(
             Modifier
